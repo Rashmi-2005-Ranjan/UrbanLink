@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -9,4 +10,12 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       ),
   },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./Components/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
+  
 ];
