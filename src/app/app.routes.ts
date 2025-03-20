@@ -32,5 +32,18 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       ),
   },
+  {
+    path:'user-dashboard',
+    loadComponent:()=>
+      import('./Components/user-dashboard/user-dashboard.component').then(
+        (m)=>m.UserDashboardComponent
+      ),
+  },
+  {
+    path:'service-provider-dashboard',
+    loadComponent:()=>import('./Components/service-provider-dashboard/service-provider-dashboard.component').then(
+      (m) => m.ServiceProviderDashboardComponent
+    ),
+  },
   { path: '**', component: NotFoundComponent }, // Wildcard route
 ];
