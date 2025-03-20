@@ -1,0 +1,39 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 p-4">
+  <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md space-y-4">
+    <!-- Header -->
+    <h2 class="text-2xl font-bold text-gray-800 text-center">Search Services</h2>
+
+    <!-- Location Dropdown -->
+    <div>
+      <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+      <select 
+        id="location" 
+        [(ngModel)]="selectedLocation"
+        name="location"
+        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        <option value="" disabled selected>Select a location</option>
+        <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+      </select>
+    </div>
+
+    <!-- Services Dropdown -->
+    <div>
+      <label for="service" class="block text-sm font-medium text-gray-700">Service</label>
+      <select 
+        id="service" 
+        [(ngModel)]="selectedService"
+        name="service"
+        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        <option value="" disabled selected>Select a service</option>
+        <option *ngFor="let service of services" [value]="service">{{ service }}</option>
+      </select>
+    </div>
+
+    <!-- Search Button -->
+    <button 
+      (click)="searchServices()"
+      class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition">
+      Search
+    </button>
+  </div>
+</div>

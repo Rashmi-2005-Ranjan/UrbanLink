@@ -1,0 +1,37 @@
+<div class="h-screen w-64 bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-lg flex flex-col">
+    <!-- Logo and Title -->
+    <div class="flex items-center justify-center py-6 border-b border-gray-700">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Logo" class="h-8 w-8">
+      <h1 class="text-xl font-bold ml-2">UrbanLink</h1>
+    </div>
+  
+    <!-- Navigation Links -->
+    <nav class="flex-1">
+      <ul class="mt-4 space-y-2">
+        <li>
+          <a routerLink="/user-dashboard/home" routerLinkActive="text-blue-600 font-bold" class="flex items-center px-6 py-3 hover:bg-gray-700 rounded-lg transition">
+            <span class="mr-3">
+              <img src="https://img.icons8.com/ios-filled/24/ffffff/home.png" alt="Dashboard">
+            </span>
+            <span class="text-lg">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/user-dashboard/search-service" routerLinkActive="text-blue-600 font-bold" class="flex items-center px-6 py-3 hover:bg-gray-700 rounded-lg transition">
+            <span class="mr-3">
+              <img src="https://img.icons8.com/ios-filled/24/ffffff/services.png" alt="Services">
+            </span>
+            <span class="text-lg">Services</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Logout Button -->
+    <div class="p-4">
+      <button class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-red-500">
+        <img src="https://img.icons8.com/ios-filled/20/ffffff/exit.png" alt="Logout" class="inline mr-2">
+        Logout
+      </button>
+    </div>
+  </div>

@@ -1,1 +1,11 @@
-<p>user-dashboard works!</p>
+<div class="flex min-h-screen bg-gray-100">
+    <!-- Sidebar Component -->
+    <app-sidebar class="w-64 bg-gray-900 text-white shadow-lg"></app-sidebar>
+  
+    <!-- Home Content -->
+    <div class="flex-1 ">
+      <!-- <app-home></app-home> -->
+       <router-outlet/>
+    </div>
+  </div>
+  

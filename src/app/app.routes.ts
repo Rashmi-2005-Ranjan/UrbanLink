@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './Components/landing-page/landing-page.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { SidebarComponent } from './Components/user-dashboard/sidebar/sidebar.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Default route
@@ -38,6 +39,19 @@ export const routes: Routes = [
       import('./Components/user-dashboard/user-dashboard.component').then(
         (m)=>m.UserDashboardComponent
       ),
+      children:[
+        {path:'',loadComponent:()=>import('./Components/user-dashboard/home/home.component').then(
+          (m)=>m.HomeComponent)
+        },
+        {
+          path:'home',loadComponent:()=>import('./Components/user-dashboard/home/home.component').then(
+            (m)=>m.HomeComponent)
+        },
+        {
+          path:'search-service',loadComponent:()=>import('./Components/user-dashboard/search-services/search-services.component').then(
+            (m)=>m.SearchServicesComponent)
+        }
+      ]
   },
   {
     path:'service-provider-dashboard',
