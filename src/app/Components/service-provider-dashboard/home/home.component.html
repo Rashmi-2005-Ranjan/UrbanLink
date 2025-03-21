@@ -1,1 +1,73 @@
-<p>home works!</p>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 p-6">
+  <!-- Welcome Section -->
+  <div class="bg-white shadow-lg rounded-lg p-6 mb-8 text-center">
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Welcome, Service Provider!</h1>
+    <p class="text-lg text-gray-600">Manage your services and track requests effortlessly.</p>
+  </div>
+
+  <!-- Cards Container -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Add Service Card -->
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-2xl transform hover:scale-105 transition-all cursor-pointer">
+      <div class="flex items-center space-x-4">
+        <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+          <i class="fas fa-plus text-2xl"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-800">Add New Service</h2>
+          <p class="text-gray-600">Create and offer new services with ease.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Requests Card -->
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-2xl transform hover:scale-105 transition-all cursor-pointer">
+      <div class="flex items-center space-x-4">
+        <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full">
+          <i class="fas fa-list text-2xl"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-800">View Requests</h2>
+          <p class="text-gray-600">Check pending service requests.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Services Card -->
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-2xl transform hover:scale-105 transition-all cursor-pointer">
+      <div class="flex items-center space-x-4">
+        <div class="bg-green-100 text-green-600 p-3 rounded-full">
+          <i class="fas fa-cogs text-2xl"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-800">Manage Services</h2>
+          <p class="text-gray-600">Edit or remove your existing services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Overview Section -->
+  <div class="bg-white shadow-lg rounded-lg p-6 mt-10">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Service Overview</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Total Services -->
+      <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold">Total Services</h3>
+        <p class="text-4xl font-bold mt-2">{{ totalServices }}</p>
+      </div>
+
+      <!-- Pending Requests -->
+      <div class="bg-gradient-to-br from-yellow-500 to-yellow-700 text-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold">Pending Requests</h3>
+        <p class="text-4xl font-bold mt-2">{{ pendingRequests }}</p>
+      </div>
+
+      <!-- Completed Requests -->
+      <div class="bg-gradient-to-br from-green-500 to-green-700 text-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold">Completed Requests</h3>
+        <p class="text-4xl font-bold mt-2">{{ completedRequests }}</p>
+      </div>
+    </div>
+  </div>
+</div>
