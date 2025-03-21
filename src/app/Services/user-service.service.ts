@@ -16,5 +16,8 @@ export class UserServiceService {
     let query = `${this.url}?location=${location}&serviceName=${service}`;
     return this.http.get<serviceDetails[]>(query);
   }
+  postService(service: serviceDetails): Observable<serviceDetails> {
+    return this.http.post<serviceDetails>(this.url, service);
+  }
 }
 

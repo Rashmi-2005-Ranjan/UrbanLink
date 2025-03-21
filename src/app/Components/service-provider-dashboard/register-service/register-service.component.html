@@ -1,1 +1,76 @@
-<p>register-service works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-200 p-6">
+    <div class="w-full max-w-4xl bg-white bg-opacity-90 shadow-xl rounded-xl p-10 border border-white/20 transform transition duration-500 hover:scale-105">
+      <!-- Form Header -->
+      <h2 class="text-4xl font-bold text-center text-blue-600 drop-shadow-lg mb-8 tracking-wide">
+        Add Service
+      </h2>
+  
+      <!-- Form -->
+      <form #serviceForm="ngForm" (ngSubmit)="addService(serviceForm.value)" class="space-y-6 text-gray-700">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Service Name -->
+          <div>
+            <label class="block mb-2 font-medium">Service Name</label>
+            <input type="text" name="serviceName" placeholder="Service Name"
+                   [ngModel]="selectedService?.serviceName"
+                   class="w-full px-4 py-3 bg-white text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                   required>
+          </div>
+  
+          <!-- Service Provider Name -->
+          <div>
+            <label class="block mb-2 font-medium">Service Provider</label>
+            <input type="text" name="serviceProviderName" placeholder="Service Provider Name"
+                   [ngModel]="selectedService?.serviceProviderName"
+                   class="w-full px-4 py-3 bg-white text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                   required>
+          </div>
+  
+          <!-- Location -->
+          <div>
+            <label class="block mb-2 font-medium">Location</label>
+            <input type="text" name="location" placeholder="Location"
+                   [ngModel]="selectedService?.location"
+                   class="w-full px-4 py-3 bg-white text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                   required>
+          </div>
+  
+          <!-- Price -->
+          <div>
+            <label class="block mb-2 font-medium">Price (₹)</label>
+            <input type="number" name="price" placeholder="Price"
+                   [ngModel]="selectedService?.price"
+                   class="w-full px-4 py-3 bg-white text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                   required>
+          </div>
+  
+          <!-- Phone -->
+          <div>
+            <label class="block mb-2 font-medium">Phone Number</label>
+            <input type="tel" name="phone" placeholder="Phone Number"
+                   [ngModel]="selectedService?.phone" pattern="[0-9]{10}"
+                   class="w-full px-4 py-3 bg-white text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
+                   required>
+          </div>
+        </div>
+  
+        <!-- Description (Full Width) -->
+        <div>
+          <label class="block mb-2 font-medium">Description</label>
+          <textarea name="description" placeholder="Description" rows="4"
+                    [ngModel]="selectedService?.description"
+                    class="w-full px-4 py-3 bg-white text-gray-800 placeholder-gray-400 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition resize-none"
+                    required></textarea>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="flex justify-center">
+          <button type="submit"
+                  class="w-1/2 py-3 px-6 text-white bg-blue-500 hover:bg-blue-700 font-semibold rounded-lg shadow-lg transition transform hover:scale-105 cursor-pointer">
+            Add Service
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
