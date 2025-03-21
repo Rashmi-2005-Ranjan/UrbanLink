@@ -32,15 +32,31 @@ export class ServiceSearchComponent {
 
   getAllService() {
     this.isLoading = true;
-    this.searchTriggered = true;
-
-    setTimeout(() => {
-      this.userService.getServices(this.selectedLocation, this.selectedService).subscribe((data: serviceDetails[]) => {
-        this.userData = data.filter(service =>
-          service.location === this.selectedLocation && service.serviceName === this.selectedService
-        );
+    this.userService.getAllServices(this.selectedLocation, this.selectedService).subscribe(
+      (data) => {
+        this.userData = data.map(service => ({
+          ...service,
+          email: JSON.parse(service.email || '{}')
+        }));
         this.isLoading = false;
-      });
-    }, 2000); // Simulate network delay
+      },
+      (error) => {
+        console.error('Error fetching services:', error);
+        this.isLoading = false;
+      }
+    );
   }
+  callServiceProvider(providerEmail: string) {
+    const currentUserEmail = localStorage.getItem('currUser');  // Get current user's email
+    if (!currentUserEmail) {
+      alert('You need to log in first!');
+      return;
+    }
+  
+    console.log(`Request sent from ${currentUserEmail} to ${providerEmail}`);
+    alert(`Request sent to service provider at ${providerEmail}`);
+  }
+  
+  
+  
 }

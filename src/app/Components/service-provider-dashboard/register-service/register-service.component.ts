@@ -2,10 +2,14 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { serviceDetails } from '../../../Interfaces/serviceDetails.interface';
 import { UserServiceService } from '../../../Services/user-service.service';
+import { services } from '../../../Data/services';
+import { CommonModule } from '@angular/common';
+import { locations } from '../../../Data/locations';
 
 @Component({
   selector: 'app-register-service',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './register-service.component.html',
   styleUrl: './register-service.component.css',
 })
@@ -13,31 +17,32 @@ export class RegisterServiceComponent {
   selectedService: serviceDetails | null = null;
   private postService = inject(UserServiceService);
   serviceData: serviceDetails[] = [];
+  serviceList = services;
+
+  locationList = locations;
   addService(formValue: serviceDetails) {
-    // Get the provider's email from localStorage
     const providerEmail = localStorage.getItem('currUser');
+
     if (!providerEmail) {
       alert('No provider email found. Please log in again.');
       return;
     }
-  
-    // Inject providerEmail into formValue before sending
-    const newService = {
+
+    const newService: serviceDetails = {
       ...formValue,
-      email: providerEmail,  // Add email to form data
+      email: providerEmail,
     };
-  
-    this.postService.postService(newService).subscribe(
-      (data: serviceDetails) => {
+
+    this.postService.postService(newService).subscribe({
+      next: (data: serviceDetails) => {
         console.log('Service added:', data);
         this.serviceData.push(data);
         alert('Service added successfully!');
       },
-      (error) => {
+      error: (error) => {
         console.error('Failed to add service:', error);
         alert('Failed to add service. Please try again.');
-      }
-    );
+      },
+    });
   }
-  
 }

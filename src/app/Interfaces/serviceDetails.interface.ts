@@ -6,5 +6,6 @@ export interface serviceDetails{
     price:number;
     phone:number;
     description:string;
-    rating:number;
+    rating?:number;
+    email?:string;
 }
