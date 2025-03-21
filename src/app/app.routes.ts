@@ -49,7 +49,7 @@ export const routes: Routes = [
         },
         {
           path:'search-service',loadComponent:()=>import('./Components/user-dashboard/search-services/search-services.component').then(
-            (m)=>m.SearchServicesComponent)
+            (m)=>m.ServiceSearchComponent)
         }
       ]
   },
