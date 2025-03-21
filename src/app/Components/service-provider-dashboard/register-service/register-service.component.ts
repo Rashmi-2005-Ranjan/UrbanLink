@@ -14,14 +14,30 @@ export class RegisterServiceComponent {
   private postService = inject(UserServiceService);
   serviceData: serviceDetails[] = [];
   addService(formValue: serviceDetails) {
-    const newService = { formValue };
-    this.postService
-      .postService(formValue)
-      .subscribe((data: serviceDetails) => {
-        console.log(data);
+    // Get the provider's email from localStorage
+    const providerEmail = localStorage.getItem('currUser');
+    if (!providerEmail) {
+      alert('No provider email found. Please log in again.');
+      return;
+    }
+  
+    // Inject providerEmail into formValue before sending
+    const newService = {
+      ...formValue,
+      email: providerEmail,  // Add email to form data
+    };
+  
+    this.postService.postService(newService).subscribe(
+      (data: serviceDetails) => {
+        console.log('Service added:', data);
         this.serviceData.push(data);
-      });
-    console.log('Service added:', formValue);
-    alert('Service added successfully!');
+        alert('Service added successfully!');
+      },
+      (error) => {
+        console.error('Failed to add service:', error);
+        alert('Failed to add service. Please try again.');
+      }
+    );
   }
+  
 }

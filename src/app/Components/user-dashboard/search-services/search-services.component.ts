@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { serviceDetails } from '../../../Interfaces/serviceDetails.interface';
 import { UserServiceService } from '../../../Services/user-service.service';
 import { NgFor, NgIf } from '@angular/common';
+import { locations } from '../../../Data/locations';
+import { services } from '../../../Data/services';
 
 @Component({
   selector: 'app-search-services',
@@ -18,8 +20,8 @@ export class ServiceSearchComponent {
   searchTriggered: boolean = false;
   isButtonEnabled: boolean = false;
 
-  locations: string[] = ['New York', 'Los Angeles', 'Chicago', 'San Francisco', 'Miami'];
-  services: string[] = ['Plumbing', 'Electrician', 'House Cleaning', 'Car Repair', 'Tutoring'];
+  locations=locations;
+  services=services;
 
   constructor(private userService: UserServiceService) {}
 

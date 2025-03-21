@@ -1,1 +1,71 @@
-<p>manage-services works!</p>
+<div class="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 p-6">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl font-bold text-center text-blue-600 mb-10">Manage Services</h1>
+  
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Service List Section -->
+        <div class="lg:col-span-2">
+          <div *ngIf="services.length === 0" class="flex justify-center items-center text-gray-500">
+            No services found.
+          </div>
+  
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div *ngFor="let service of services" class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition">
+              <h2 class="text-xl font-semibold text-blue-600">{{ service.serviceName }}</h2>
+              <p class="text-gray-700 my-2">{{ service.description }}</p>
+              <p class="text-gray-600">Location: {{ service.location }}</p>
+              <p class="text-gray-600">Price: ₹{{ service.price }}</p>
+              <p class="text-gray-600">Phone: {{ service.phone }}</p>
+  
+              <div class="mt-4 flex justify-between">
+                <button (click)="loadServiceForUpdate(service)" 
+                        class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition cursor-pointer">
+                  Update
+                </button>
+                <button (click)="deleteService(service.id)" 
+                        class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition cursor-pointer">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Update Form Section -->
+        <div *ngIf="selectedService" class="bg-white p-6 rounded-lg shadow-lg h-fit">
+          <h2 class="text-2xl font-bold text-blue-600 mb-4">Update Service</h2>
+  
+          <form (ngSubmit)="saveUpdatedService()" #updateForm="ngForm" class="space-y-4">
+            <input type="text" name="serviceName" [(ngModel)]="selectedService.serviceName" placeholder="Service Name"
+              class="w-full p-2 border rounded-lg" required>
+  
+            <input type="text" name="serviceProviderName" [(ngModel)]="selectedService.serviceProviderName"
+              placeholder="Service Provider Name" class="w-full p-2 border rounded-lg" required>
+  
+            <input type="text" name="location" [(ngModel)]="selectedService.location" placeholder="Location"
+              class="w-full p-2 border rounded-lg" required>
+  
+            <input type="number" name="price" [(ngModel)]="selectedService.price" placeholder="Price"
+              class="w-full p-2 border rounded-lg" required>
+  
+            <input type="tel" name="phone" [(ngModel)]="selectedService.phone" placeholder="Phone Number"
+              class="w-full p-2 border rounded-lg" pattern="[0-9]{10}" required>
+  
+            <textarea name="description" [(ngModel)]="selectedService.description" placeholder="Description"
+              class="w-full p-2 border rounded-lg" required></textarea>
+  
+            <div class="flex justify-between">
+              <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                Save
+              </button>
+              <button type="button" (click)="cancelUpdate()"
+                class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
