@@ -1,15 +1,12 @@
 <!-- Search Bar UI -->
-<div class="min-h-screen flex flex-col items-center justify-items-stretch bg-gradient-to-br from-blue-100 to-purple-100 p-4">
+<div
+  class="min-h-screen flex flex-col items-center justify-items-stretch bg-gradient-to-br from-blue-100 to-purple-100 p-4">
   <h1 class="text-3xl font-bold text-center mb-5">Search Services</h1>
   <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-4xl flex items-center space-x-4 mb-6">
     <!-- Location Dropdown -->
     <div class="w-1/3">
       <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
-      <select 
-        id="location" 
-        [(ngModel)]="selectedLocation"
-        name="location"
-        (change)="checkSelection()"
+      <select id="location" [(ngModel)]="selectedLocation" name="location" (change)="checkSelection()"
         class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
         <option value="" disabled selected>Select a location</option>
         <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
@@ -19,11 +16,7 @@
     <!-- Services Dropdown -->
     <div class="w-1/3">
       <label for="service" class="block text-sm font-medium text-gray-700">Service</label>
-      <select 
-        id="service" 
-        [(ngModel)]="selectedService"
-        name="service"
-        (change)="checkSelection()"
+      <select id="service" [(ngModel)]="selectedService" name="service" (change)="checkSelection()"
         class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
         <option value="" disabled selected>Select a service</option>
         <option *ngFor="let service of services" [value]="service">{{ service }}</option>
@@ -31,10 +24,7 @@
     </div>
 
     <!-- Search Button -->
-    <button 
-      (click)="getAllService()"
-      [disabled]="!isButtonEnabled"
-      class="w-1/3 mt-5 py-2 rounded-lg text-white transition 
+    <button (click)="getAllService()" [disabled]="!isButtonEnabled" class="w-1/3 mt-5 py-2 rounded-lg text-white transition 
              focus:outline-none focus:ring-2 focus:ring-blue-500
              hover:bg-blue-700 
              bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer">
@@ -63,50 +53,45 @@
     <div *ngIf="!isLoading && searchTriggered && userData.length === 0" class="text-gray-500 text-center">
       No services found.
     </div>
-
-    <!-- Display Results -->
     <!-- Service Results -->
-<!-- Service Results -->
-<div *ngIf="!isLoading && userData.length > 0">
-  <!-- One Service - Full Width -->
-  <div *ngIf="userData.length === 1" 
-       class="user-card bg-white shadow-md rounded-lg p-4 border border-gray-200 transform transition hover:scale-105 hover:shadow-lg">
-    <h3 class="text-lg font-bold text-blue-700">{{ userData[0].serviceName }}</h3>
-    <p><strong>Provider:</strong> {{ userData[0].serviceProviderName }}</p>
-    <p><strong>Location:</strong> {{ userData[0].location }}</p>
-    <p><strong>Price:</strong> ${{ userData[0].price }}</p>
-    <p><strong>Description:</strong> {{ userData[0].description }}</p>
-    <p><strong>Rating:</strong> ⭐ {{ userData[0].rating }}</p>
-    <div class="flex justify-between items-center mt-4">
-      <p class="text-gray-700"><strong>Phone:</strong> {{ userData[0].phone }}</p>
-      <a [href]="'tel:' + userData[0].phone" 
-         class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-        Call
-      </a>
-    </div>
-  </div>
+    <div *ngIf="!isLoading && userData.length > 0">
+      <!-- One Service - Full Width -->
+      <div *ngIf="userData.length === 1"
+        class="user-card bg-white shadow-md rounded-lg p-4 border border-gray-200 transform transition hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-bold text-blue-700">{{ userData[0].serviceName }}</h3>
+        <p><strong>Provider:</strong> {{ userData[0].serviceProviderName }}</p>
+        <p><strong>Location:</strong> {{ userData[0].location }}</p>
+        <p><strong>Price:</strong> ${{ userData[0].price }}</p>
+        <p><strong>Description:</strong> {{ userData[0].description }}</p>
+        <p><strong>Rating:</strong> ⭐ {{ userData[0].rating }}</p>
+        <div class="flex justify-between items-center mt-4">
+          <p class="text-gray-700"><strong>Phone:</strong> {{ userData[0].phone }}</p>
+          <a [href]="'tel:' + userData[0].phone"
+            class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+            Call
+          </a>
+        </div>
+      </div>
 
-  <!-- Multiple Services - Two Per Row -->
-  <div *ngIf="userData.length > 1" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div *ngFor="let service of userData" 
-         class="user-card bg-white shadow-md rounded-lg p-4 border border-gray-200 transform transition hover:scale-105 hover:shadow-lg">
-      <h3 class="text-lg font-bold text-blue-700">{{ service.serviceName }}</h3>
-      <p><strong>Provider:</strong> {{ service.serviceProviderName }}</p>
-      <p><strong>Location:</strong> {{ service.location }}</p>
-      <p><strong>Price:</strong> ${{ service.price }}</p>
-      <p><strong>Description:</strong> {{ service.description }}</p>
-      <p><strong>Rating:</strong> ⭐ {{ service.rating }}</p>
-      <div class="flex justify-between items-center mt-4">
-        <p class="text-gray-700"><strong>Phone:</strong> {{ service.phone }}</p>
-        <a [href]="'tel:' + service.phone" 
-           class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-          Call
-        </a>
+      <!-- Multiple Services - Two Per Row -->
+      <div *ngIf="userData.length > 1" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div *ngFor="let service of userData"
+          class="user-card bg-white shadow-md rounded-lg p-4 border border-gray-200 transform transition hover:scale-105 hover:shadow-lg">
+          <h3 class="text-lg font-bold text-blue-700">{{ service.serviceName }}</h3>
+          <p><strong>Provider:</strong> {{ service.serviceProviderName }}</p>
+          <p><strong>Location:</strong> {{ service.location }}</p>
+          <p><strong>Price:</strong> ${{ service.price }}</p>
+          <p><strong>Description:</strong> {{ service.description }}</p>
+          <p><strong>Rating:</strong> ⭐ {{ service.rating }}</p>
+          <div class="flex justify-between items-center mt-4">
+            <p class="text-gray-700"><strong>Phone:</strong> {{ service.phone }}</p>
+            <a [href]="'tel:' + service.phone"
+              class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+              Call
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-
   </div>
 </div>
