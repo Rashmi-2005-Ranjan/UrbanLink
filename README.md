@@ -1,59 +1,89 @@
 # UrbanLink
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+## 🚀 Quickly finding essential services in any location
 
-## Development server
+### 📌 Project Overview
+**UrbanLink** aims to bridge the gap between local service providers and new visitors by offering a user-friendly platform for easy service discovery and connection. Whether you're looking for restaurants, medical facilities, repair services, or any other essential service, UrbanLink helps you find them quickly and efficiently.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
+## 🔥 Features
+- 🌍 **Location-Based Search** - Find services in your current or desired location. (Not Completely Implemented)
+- 🔎 **Smart Search & Filters** - Search for specific services and filter results based on ratings, distance, and availability.
+- 📍 **Interactive Maps** - View service providers on a dynamic map for easy navigation.
+- 👥 **User Reviews & Ratings** - Get insights from real user reviews before choosing a service.
+- 📞 **Direct Contact** - Contact service providers directly from the platform.
+- 💼 **Business Profiles** - Service providers can create profiles to showcase their offerings.
+
+---
+
+## 🛠️ Tech Stack
+### **Frontend**
+- Angular 19
+- TypeScript
+- Tailwind CSS
+
+### **Backend**
+- Spring Boot
+- REST APIs
+
+
+### **Database**
+- MySQL (for structured business data)
+
+
+
+## ⚙️ Installation & Setup
+
+1️⃣ **Clone the Repository:**
+```sh
+git clone https://github.com/sayanash/UrbanLink.git
+cd UrbanLink
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+2️⃣ **Install Dependencies:**
+```sh
+npm install  # Install frontend dependencies
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+3️⃣ **Run the Angular Development Server:**
+```sh
+ng serve --open
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
+4️⃣ **Run the Spring Boot Backend:**
+```sh
+cd backend
+mvn spring-boot:run
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+5️⃣ **Environment Variables:**
+- Set up Firebase API keys and Google Maps API keys in a `.env` file.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📸 Screenshots
+📷 *Coming soon...*
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 💡 Future Enhancements
+✅ AI-based recommendations based on user preferences.  
+✅ Offline mode for searching services without an internet connection.  
+✅ In-app booking and payment system for services.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 🤝 Contributing
+We welcome contributions! Follow these steps:
+1. Fork the repository.
+2. Create a new feature branch: `git checkout -b feature-branch`
+3. Commit your changes: `git commit -m "Add new feature"`
+4. Push to the branch: `git push origin feature-branch`
+5. Open a pull request.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
