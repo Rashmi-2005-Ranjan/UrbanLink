@@ -164,7 +164,10 @@ export class AuthServicesService {
     return this.currUser;
   }
   
-  
+  getLoggedInUserEmail(): string {
+    const user = this.getCurrentUser();
+    return user && user.role === 'serviceProvider' ? user.email : '';
+  }
 
   isAuthenticated():boolean{
     return !!this.getCurrentUser();
