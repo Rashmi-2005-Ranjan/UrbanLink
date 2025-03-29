@@ -31,14 +31,27 @@ export class ServiceSearchComponent {
   }
 
   getAllService() {
+    if (!this.selectedLocation || !this.selectedService) {
+      alert('Please select both location and service before searching.');
+      return;
+    }
+  
     this.isLoading = true;
-    this.userService.getAllServices(this.selectedLocation, this.selectedService).subscribe(
+    this.searchTriggered = true;
+  
+    this.userService.getAllServices().subscribe(
       (data) => {
-        this.userData = data.map(service => ({
-          ...service,
-          email: JSON.parse(service.email || '{}')
-        }));
+        // Filter services based on selected location and service
+        this.userData = data.filter(service =>
+          service.location.toLowerCase() === this.selectedLocation.toLowerCase() &&
+          service.serviceName.toLowerCase() === this.selectedService.toLowerCase()
+        );
+  
         this.isLoading = false;
+  
+        if (this.userData.length === 0) {
+          alert('No services found for the selected location and service.');
+        }
       },
       (error) => {
         console.error('Error fetching services:', error);
@@ -46,15 +59,34 @@ export class ServiceSearchComponent {
       }
     );
   }
-  callServiceProvider(providerEmail: string) {
-    const currentUserEmail = localStorage.getItem('currUser');  // Get current user's email
+  
+  callServiceProvider(service: serviceDetails) {
+    const currentUserEmail = localStorage.getItem('currUser'); // Get logged-in user's email
+  
     if (!currentUserEmail) {
       alert('You need to log in first!');
       return;
     }
   
-    console.log(`Request sent from ${currentUserEmail} to ${providerEmail}`);
-    alert(`Request sent to service provider at ${providerEmail}`);
+    // Create request object
+    const requestData = {
+      userEmail: currentUserEmail,  // The user requesting the service
+      serviceName: service.serviceName,
+      providerEmail: service.email,
+      providerName: service.serviceProviderName,
+      location: service.location
+    };
+  
+    // Send request data to the backend (db.json)
+    this.userService.saveServiceRequest(requestData).subscribe(
+      () => {
+        alert(`Service request sent successfully to ${service.serviceProviderName}`);
+      },
+      (error) => {
+        console.error('Error saving service request:', error);
+        alert('Failed to send service request. Try again.');
+      }
+    );
   }
   
   

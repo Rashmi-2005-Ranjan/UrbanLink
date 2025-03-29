@@ -57,21 +57,26 @@
     <div *ngIf="!isLoading && userData.length > 0">
       <!-- One Service - Full Width -->
       <div *ngIf="userData.length === 1"
-        class="user-card bg-white shadow-md rounded-lg p-4 border border-gray-200 transform transition hover:scale-105 hover:shadow-lg">
-        <h3 class="text-lg font-bold text-blue-700">{{ userData[0].serviceName }}</h3>
-        <p><strong>Provider:</strong> {{ userData[0].serviceProviderName }}</p>
-        <p><strong>Location:</strong> {{ userData[0].location }}</p>
-        <p><strong>Price:</strong> ${{ userData[0].price }}</p>
-        <p><strong>Description:</strong> {{ userData[0].description }}</p>
-        <p><strong>Rating:</strong> ⭐ {{ userData[0].rating }}</p>
-        <div class="flex justify-between items-center mt-4">
-          <p class="text-gray-700"><strong>Phone:</strong> {{ userData[0].phone }}</p>
-          <a [href]="'tel:' + userData[0].phone"
-            class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-            Call
-          </a>
-        </div>
+      class="user-card bg-white shadow-md rounded-lg p-4 border border-gray-200 transform transition hover:scale-105 hover:shadow-lg">
+      
+      <h3 class="text-lg font-bold text-blue-700">{{ userData[0].serviceName }}</h3>
+      <p><strong>Provider:</strong> {{ userData[0].serviceProviderName }}</p>
+      <p><strong>Location:</strong> {{ userData[0].location }}</p>
+      <p><strong>Price:</strong> ${{ userData[0].price }}</p>
+      <p><strong>Description:</strong> {{ userData[0].description }}</p>
+      <p><strong>Rating:</strong> ⭐ {{ userData[0].rating }}</p>
+      
+      <div class="flex justify-between items-center mt-4">
+        <p class="text-gray-700"><strong>Phone:</strong> {{ userData[0].phone }}</p>
+        
+        <!-- Updated Call Button -->
+        <button (click)="callServiceProvider(userData[0])"
+          class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+          Call
+        </button>
       </div>
+    </div>
+    
 
       <!-- Multiple Services - Two Per Row -->
       <div *ngIf="userData.length > 1" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -83,13 +88,7 @@
           <p><strong>Price:</strong> ${{ service.price }}</p>
           <p><strong>Description:</strong> {{ service.description }}</p>
           <p><strong>Rating:</strong> ⭐ {{ service.rating }}</p>
-          <div class="flex justify-between items-center mt-4">
-            <p class="text-gray-700"><strong>Phone:</strong> {{ service.phone }}</p>
-            <a [href]="'tel:' + service.phone"
-              class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-              Call
-            </a>
-          </div>
+          <button (click)="callServiceProvider(service)">Call</button>
         </div>
       </div>
     </div>
