@@ -1,0 +1,40 @@
+<div class="max-w-4xl mx-auto p-6">
+    <h2 class="text-2xl font-bold text-red-600 text-center mb-4">🔴 Rejected Services</h2>
+  
+    <!-- Show message if no rejected services are found -->
+    <p *ngIf="rejectedServices.length === 0" class="text-gray-500 text-center italic">
+      No rejected services found.
+    </p>
+  
+    <!-- List of Rejected Services -->
+    <div *ngFor="let service of rejectedServices" class="bg-white shadow-lg rounded-lg p-5 mb-4">
+      <h3 class="text-lg font-semibold text-gray-800">{{ service.serviceName }}</h3>
+      <p class="text-gray-600"><strong>Category:</strong> {{ service.category }}</p>
+      <p class="text-gray-600"><strong>Reason for Rejection:</strong> {{ service.rejectionReason }}</p>
+  
+      <!-- Show Service User Details -->
+      <ng-container *ngIf="loggedInUserRole === 'serviceProvider'">
+        <p class="text-gray-600"><strong>Requested By:</strong> {{ service.userEmail }}</p>
+      </ng-container>
+  
+      <!-- Show Service Provider Details -->
+      <ng-container *ngIf="loggedInUserRole === 'serviceUser'">
+        <p class="text-gray-600"><strong>Rejected By:</strong> {{ service.providerEmail }}</p>
+      </ng-container>
+  
+      <!-- Action Buttons -->
+      <div class="mt-4 flex gap-3">
+        <!-- <button 
+          *ngIf="loggedInUserRole === 'serviceUser'"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition">
+          🔄 Request Again
+        </button> -->
+        <!-- <button 
+          *ngIf="loggedInUserRole === 'serviceProvider'"
+          class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded transition">
+          📄 View Details
+        </button> -->
+      </div>
+    </div>
+  </div>
+  
