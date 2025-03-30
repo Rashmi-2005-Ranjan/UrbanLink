@@ -60,6 +60,20 @@ export const routes: Routes = [
             './Components/user-dashboard/search-services/search-services.component'
           ).then((m) => m.ServiceSearchComponent),
       },
+      {
+        path: 'show-status',
+        loadComponent: () =>
+          import(
+            './Components/user-dashboard/show-status/show-status.component'
+          ).then((m) => m.ShowStatusComponent),
+      },
+      {
+        path: 'view-rejected-services',
+        loadComponent: () =>
+          import('./Components/shared/shared.component').then(
+            (m) => m.SharedComponent
+          ),
+      },
     ],
   },
   {
@@ -103,6 +117,13 @@ export const routes: Routes = [
           import(
             './Components/service-provider-dashboard/manage-services/manage-services.component'
           ).then((m) => m.ManageServicesComponent),
+      },
+      {
+        path: 'view-reject-services',
+        loadComponent: () =>
+          import('./Components/shared/shared.component').then(
+            (m) => m.SharedComponent
+          ),
       },
     ],
   },
