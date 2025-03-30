@@ -4,13 +4,13 @@ import { AuthServicesService } from '../../../Services/auth-services.service';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [RouterLink,RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  private auth=inject(AuthServicesService)
-logout():void{
-  this.auth.logout();
-}
+  private auth = inject(AuthServicesService);
+  logout(): void {
+    this.auth.logout();
+  }
 }
