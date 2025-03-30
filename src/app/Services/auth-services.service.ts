@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthServicesService {
-
   //* Service users and service providers List
   private users: User[] = [
     {
@@ -148,7 +147,7 @@ export class AuthServicesService {
       return false;
     }
   }
-  
+
   navigateByUrl(url: string): void {
     // ✅ Correct method name
     this.router.navigateByUrl(url, { replaceUrl: true });
@@ -163,13 +162,13 @@ export class AuthServicesService {
     }
     return this.currUser;
   }
-  
+
   getLoggedInUserEmail(): string {
     const user = this.getCurrentUser();
     return user && user.role === 'serviceProvider' ? user.email : '';
   }
 
-  isAuthenticated():boolean{
+  isAuthenticated(): boolean {
     return !!this.getCurrentUser();
   }
 
@@ -181,5 +180,11 @@ export class AuthServicesService {
     this.currUser = null;
     localStorage.removeItem('currUser');
     this.navigateByUrl('/login');
+  }
+
+  // ✅ Added method to get email for all logged-in users
+  getaLoggedInUserEmail(): string {
+    const user = this.getCurrentUser();
+    return user ? user.email : ''; // ✅ Returns email for all logged-in users
   }
 }

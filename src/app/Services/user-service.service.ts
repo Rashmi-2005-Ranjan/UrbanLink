@@ -9,6 +9,8 @@ import { serviceDetails } from '../Interfaces/serviceDetails.interface';
 export class UserServiceService {
   private url: string = 'http://localhost:3000/services';
   private ourl: string = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/successService';
+
 
   constructor(private http: HttpClient) {}
 
@@ -101,5 +103,13 @@ export class UserServiceService {
   // Load rejected services (if needed)
   getRejectServices(): Observable<any[]> {
     return this.http.get<any[]>(`${this.ourl}/rejectService`);
+  }
+
+  showSuccessServices(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  getRejectedServices(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3000/rejectService');
   }
 }
