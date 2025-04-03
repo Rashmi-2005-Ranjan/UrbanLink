@@ -1,0 +1,85 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black animate-gradient">
+    <div class="w-full max-w-md bg-white shadow-2xl rounded-lg p-8 space-y-6 transform transition-all hover:scale-105 duration-300 ease-in-out">
+      <!-- Header -->
+      <div class="text-center">
+        <h2 class="text-4xl font-extrabold text-gray-900">Create an Account</h2>
+        <p class="text-gray-600">Join us today!</p>
+      </div>
+  
+      <!-- Register Form -->
+      <form class="space-y-6" (ngSubmit)="onRegister()">
+        <!-- Email Field -->
+        <div class="relative">
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input 
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            #emailInput="ngModel"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-gray-50"
+            placeholder="Enter your email"
+          />
+          <p *ngIf="emailInput.invalid && emailInput.dirty" class="text-red-500 text-sm mt-2">
+            Please enter a valid email address.
+          </p>
+        </div>
+  
+        <!-- Password Field -->
+        <div class="relative">
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input 
+            type="password"
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            #passwordInput="ngModel"
+            required
+            class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-gray-50"
+            placeholder="Enter your password"
+          />
+          <p *ngIf="passwordInput.invalid && passwordInput.dirty" class="text-red-500 text-sm mt-2">
+            Password must be at least 8 characters, contain one uppercase, one lowercase, one digit, and one special character.
+          </p>
+        </div>
+  
+        <!-- Role Selection -->
+        <div class="relative">
+          <label for="role" class="block text-sm font-medium text-gray-700">Select Role</label>
+          <select 
+            id="role" 
+            [(ngModel)]="role" 
+            name="role"
+            required
+            class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-gray-50"
+          >
+            <option value="serviceUser">Service User</option>
+            <option value="serviceProvider">Service Provider</option>
+          </select>
+        </div>
+  
+        <!-- Error Message -->
+        @if (errorMessage) {
+          <div class="p-2 bg-red-100 border-l-4 border-red-500 text-red-700 text-sm rounded-md animate-shake">
+            {{ errorMessage }}
+          </div>
+        }
+  
+        <!-- Register Button -->
+        <button 
+          type="submit" 
+          [disabled]="emailInput.invalid || passwordInput.invalid"
+          class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+          Sign Up
+        </button>
+      </form>
+  
+      <!-- Links -->
+      <div class="flex justify-between text-sm text-blue-400 mt-4">
+        <a routerLink="/login" class="hover:underline cursor-pointer">Already have an account? Login</a>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
