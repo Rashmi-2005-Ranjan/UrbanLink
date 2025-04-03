@@ -33,6 +33,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'register',
+    loadComponent: () =>
+      import('./Components/register/register.component').then(
+        (m) => m.RegisterComponent
+      ),
+  },
+  {
     path: 'user-dashboard',
     loadComponent: () =>
       import('./Components/user-dashboard/user-dashboard.component').then(
