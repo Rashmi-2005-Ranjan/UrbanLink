@@ -1,7 +1,15 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, UserCredential, User } from '@angular/fire/auth';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  UserCredential,
+  User,
+} from '@angular/fire/auth';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -14,9 +22,14 @@ export class AuthServicesService {
   constructor() {}
 
   // 🔹 Register a New User
-  async register(email: string, password: string, role: 'serviceUser' | 'serviceProvider') {
+  async register(
+    email: string,
+    password: string,
+    role: 'serviceUser' | 'serviceProvider'
+  ) {
     try {
-      const userCredential: UserCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+      const userCredential: UserCredential =
+        await createUserWithEmailAndPassword(this.auth, email, password);
       const userId = userCredential.user.uid;
 
       // 🔥 Save role in Firestore
@@ -33,7 +46,11 @@ export class AuthServicesService {
   // 🔹 Login User with Correct Role Retrieval
   async login(email: string, password: string): Promise<boolean> {
     try {
-      const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        this.auth,
+        email,
+        password
+      );
       const userId = userCredential.user.uid;
 
       // 🔥 Retrieve role from Firestore
@@ -92,5 +109,19 @@ export class AuthServicesService {
       console.error('❌ Error getting logged-in email:', error);
       return null;
     }
+  }
+
+  async resetPassword(email: string): Promise<void> {
+    try {
+      await sendPasswordResetEmail(this.auth, email);
+      alert('Password reset email sent! Check your inbox.');
+    } catch (error) {
+      console.error('Password Reset Error:', error);
+      alert('Failed to send password reset email. Please try again.');
+    }
+  }
+
+  navigateByUrl(path: string) {
+    this.router.navigateByUrl(path);
   }
 }
