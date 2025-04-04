@@ -1,6 +1,10 @@
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './Components/landing-page/landing-page.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { authGuard } from './Guards/Auth/auth.guard';
+import { serviceProviderOnlyGuard } from './Guards/ServiceProvider/service-provider-only.guard';
+import { unsavedChangesGuard } from './Guards/UnsavedChanges/unsaved-changes.guard';
+import { userAuthGuard } from './Guards/UserAuth/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent }, // Default route
@@ -40,6 +44,14 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('./Components/forgot-password/forgot-password.component').then(
+        (m) => m.ForgotPasswordComponent
+      ),
+  },
+  {
+    canActivate:[userAuthGuard],
     path: 'user-dashboard',
     loadComponent: () =>
       import('./Components/user-dashboard/user-dashboard.component').then(
@@ -84,6 +96,8 @@ export const routes: Routes = [
     ],
   },
   {
+    canActivate:[authGuard],
+    canMatch:[serviceProviderOnlyGuard],
     path: 'service-provider-dashboard',
     loadComponent: () =>
       import(
@@ -124,6 +138,7 @@ export const routes: Routes = [
           import(
             './Components/service-provider-dashboard/manage-services/manage-services.component'
           ).then((m) => m.ManageServicesComponent),
+          canDeactivate:[unsavedChangesGuard]
       },
       {
         path: 'view-reject-services',
