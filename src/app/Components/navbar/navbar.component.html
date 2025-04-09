@@ -1,23 +1,36 @@
-<nav class="bg-white shadow-md fixed w-full z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
-        <div class="flex items-center">
-          <img
-            src="https://previews.123rf.com/images/yupiramos/yupiramos1506/yupiramos150600961/40712795-highway-road-design-vector-illustration-eps10-graphic.jpg"
-            alt="UrbanLink Logo"
-            class="h-10 w-10 animate-bounce rounded-full"
-          />
-          <span class="ml-2 text-xl font-bold text-gray-800">UrbanLink</span>
-        </div>
-        <!-- Navigation Links -->
-        <div class="hidden md:flex space-x-6">
-          <a routerLink="/" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
-          <a routerLink="/features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a>
-          <a routerLink="/pricing" class="text-gray-700 hover:text-blue-600 transition duration-300">Pricing</a>
-          <a routerLink="/contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
-        </div>
+<nav class="bg-gradient-to-r from-purple-900 via-blue-900 to-green-900 shadow-lg fixed w-full z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img
+          src="https://previews.123rf.com/images/yupiramos/yupiramos1506/yupiramos150600961/40712795-highway-road-design-vector-illustration-eps10-graphic.jpg"
+          alt="UrbanLink Logo"
+          class="h-10 w-10 hover:rotate-180 transition-transform duration-500 rounded-full"
+        />
+        <span class="ml-2 text-xl font-bold text-white hover:scale-105 transition-transform duration-300">UrbanLink</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex space-x-6">
+        <a routerLink="/" class="text-gray-200 hover:text-white transition-colors duration-300 relative">
+          <span>Home</span>
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 hover:w-full"></span>
+        </a>
+        <a routerLink="/features" class="text-gray-200 hover:text-white transition-colors duration-300 relative">
+          <span>Features</span>
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 hover:w-full"></span>
+        </a>
+        <a routerLink="/pricing" class="text-gray-200 hover:text-white transition-colors duration-300 relative">
+          <span>Pricing</span>
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 hover:w-full"></span>
+        </a>
+        <a routerLink="/contact" class="text-gray-200 hover:text-white transition-colors duration-300 relative">
+          <span>Contact</span>
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 hover:w-full"></span>
+        </a>
       </div>
     </div>
-  </nav>
-  <router-outlet/>
+  </div>
+</nav>
+<router-outlet/>
