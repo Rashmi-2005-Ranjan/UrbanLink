@@ -7,7 +7,8 @@ import { FooterComponent } from '../footer/footer.component';
   selector: 'app-landing-page',
   imports: [NavbarComponent,FooterComponent,RouterLink,RouterOutlet],
   templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
+  styleUrl: './landing-page.component.css',
+  
 })
 export class LandingPageComponent {
 

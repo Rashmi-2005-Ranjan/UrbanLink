@@ -1,37 +1,23 @@
-<div class="min-h-screen bg-gray-100 flex flex-col">
-    <!-- Navbar Component -->
-    <app-navbar/>
-  
-    <!-- Hero Section -->
-    <header class="relative flex flex-col items-center justify-center h-screen text-center bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-      <h1 class="text-5xl font-extrabold mb-4 animate-fadeIn">Welcome to UrbanLink</h1>
-      <p class="text-lg mb-6 animate-slideUp">Connecting cities with smart solutions</p>
-      <a routerLink="/login" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition duration-300">
-        Get Started
-      </a>
-    </header>
-  
-    <!-- Features Section -->
-    <section class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-10">Why Choose Us?</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6 bg-white shadow-lg rounded-lg text-center hover:scale-105 transition duration-300">
-          <h3 class="text-xl font-semibold text-blue-600">Smart Connectivity</h3>
-          <p class="mt-2 text-gray-600">Seamless urban solutions for the modern city.</p>
-        </div>
-        <div class="p-6 bg-white shadow-lg rounded-lg text-center hover:scale-105 transition duration-300">
-          <h3 class="text-xl font-semibold text-blue-600">Eco-Friendly</h3>
-          <p class="mt-2 text-gray-600">Sustainable technology for a greener future.</p>
-        </div>
-        <div class="p-6 bg-white shadow-lg rounded-lg text-center hover:scale-105 transition duration-300">
-          <h3 class="text-xl font-semibold text-blue-600">User-Friendly</h3>
-          <p class="mt-2 text-gray-600">Simple, intuitive, and accessible to everyone.</p>
-        </div>
-      </div>
-    </section>
-  
-    <!-- Footer -->
-    <app-footer/>
-  </div>
-  <router-outlet/>
-  
+<div class="min-h-screen bg-black flex flex-col">
+  <!-- Navbar Component -->
+  <app-navbar/>
+
+  <!-- Hero Section -->
+  <header class="relative flex flex-col items-center justify-center h-screen text-center bg-gradient-to-r from-purple-900 via-blue-900 to-green-900 text-white overflow-hidden animate-gradient">
+    <div class="absolute inset-0 pointer-events-none">
+      <!-- Animated particles background -->
+      <div class="w-64 h-64 bg-white opacity-10 rounded-full absolute top-1/4 left-1/4 animate-float"></div>
+      <div class="w-48 h-48 bg-white opacity-10 rounded-full absolute bottom-1/4 right-1/4 animate-float delay-1000"></div>
+    </div>
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 animate-slideInFromTop text-shadow-lg">Welcome to UrbanLink</h1>
+    <p class="text-lg md:text-xl mb-6 animate-slideInFromBottom text-gray-200">Connecting cities with smart solutions</p>
+    <a routerLink="/login" class="relative px-6 py-3 bg-white text-purple-900 font-semibold rounded-lg shadow-md overflow-hidden group">
+      <span class="absolute inset-0 bg-purple-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+      <span class="relative z-10 group-hover:text-white transition-colors duration-300">Get Started</span>
+    </a>
+  </header>
+
+  <!-- Footer -->
+  <app-footer/>
+</div>
+<router-outlet/>
