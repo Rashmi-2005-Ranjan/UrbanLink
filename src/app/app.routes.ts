@@ -138,7 +138,6 @@ export const routes: Routes = [
           import(
             './Components/service-provider-dashboard/manage-services/manage-services.component'
           ).then((m) => m.ManageServicesComponent),
-          canDeactivate:[unsavedChangesGuard]
       },
       {
         path: 'view-reject-services',
