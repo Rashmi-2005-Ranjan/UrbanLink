@@ -1,61 +1,149 @@
-<app-navbar/>
-<div class="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-    <!-- Title -->
-    <h1 class="text-4xl font-bold text-gray-800 mb-10">UrbanPlace Features</h1>
+<app-navbar></app-navbar>
+<div class="min-h-screen flex flex-col items-center p-6 relative overflow-hidden" id="dynamicBg">
+  <!-- Interactive Background Elements -->
+  <div class="fixed inset-0 -z-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 transition-all duration-1000"></div>
   
+  <!-- Animated floating circles that follow mouse -->
+  <div class="fixed -z-10 w-80 mt-10 h-80 rounded-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 blur-3xl animate-float opacity-70" id="floatingCircle1"></div>
+  <div class="fixed -z-10 w-96 h-96 rounded-full bg-gradient-to-br from-green-900/20 to-teal-900/20 blur-3xl animate-float opacity-70 animation-delay-2000" id="floatingCircle2"></div>
+  <div class="fixed -z-10 w-64 h-64 rounded-full bg-gradient-to-br from-purple-900/20 to-pink-900/20 blur-3xl animate-float opacity-70 animation-delay-4000" id="floatingCircle3"></div>
+
+  <!-- Content Container with semi-transparent backdrop -->
+  <div class="backdrop-blur-sm bg-white/5 mt-14 rounded-3xl shadow-2xl border border-white/10 w-full max-w-7xl p-8 transition-all duration-500">
+    <!-- Animated Title -->
+    <h1 class="mt-5 text-4xl font-bold text-white mb-10 animate-fade-in-down hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-400 transition-all duration-500">
+      Urban<span class="text-blue-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-300 hover:to-blue-500 transition-all duration-500">Link</span> Features
+      <span class="block w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mt-2 rounded-full hover:w-24 hover:from-blue-300 hover:to-purple-400 transition-all duration-300"></span>
+    </h1>
+
     <!-- Features Grid -->
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl w-full">
-  
-      <!-- Card 1 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+
+      <!-- Feature Cards with Interactive Gradients -->
+      <div class="group bg-gray-800/50 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer border border-gray-700 hover:border-blue-400/30 hover:bg-gradient-to-br hover:from-gray-800/70 hover:to-gray-900/70"
+           data-color="blue">
         <div class="p-6">
-          <h3 class="text-xl font-semibold text-blue-600 mb-2">Smart Navigation</h3>
-          <p class="text-gray-600">Explore the city effortlessly with real-time navigation and location-based services.</p>
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-lg flex items-center justify-center mb-4 group-hover:from-blue-800/60 group-hover:to-blue-700/40 transition-all duration-500">
+            <svg class="w-6 h-6 text-gradient bg-gradient-to-r from-blue-400 to-blue-600 group-hover:from-blue-300 group-hover:to-blue-500 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-blue-600 transition-all duration-500">Smart Navigation</h3>
+          <p class="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">Explore the city effortlessly with real-time navigation and location-based services.</p>
+          <a class="inline-flex items-center font-medium transition-all duration-500 text-gradient">
+            Learn more
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
       </div>
-  
-      <!-- Card 2 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer">
+
+      <!-- Green Card -->
+      <div class="group bg-gray-800/50 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer border border-gray-700 hover:border-green-400/30 hover:bg-gradient-to-br hover:from-gray-800/70 hover:to-gray-900/70"
+           data-color="green">
         <div class="p-6">
-          <h3 class="text-xl font-semibold text-green-600 mb-2">Urban Connectivity</h3>
-          <p class="text-gray-600">Connect with urban hotspots, transport hubs, and social spaces seamlessly.</p>
+          <div class="w-14 h-14 bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-lg flex items-center justify-center mb-4 group-hover:from-green-800/60 group-hover:to-green-700/40 transition-all duration-500">
+            <svg class="w-6 h-6 text-gradient bg-gradient-to-r from-green-400 to-green-600 group-hover:from-green-300 group-hover:to-green-500 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-green-600 transition-all duration-500">Urban Connectivity</h3>
+          <p class="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">Connect with urban hotspots, transport hubs, and social spaces seamlessly.</p>
+          <a class="inline-flex items-center font-medium transition-all duration-500 text-gradient">
+            Learn more
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
       </div>
-  
-      <!-- Card 3 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer">
+
+      <!-- Purple Card -->
+      <div class="group bg-gray-800/50 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 cursor-pointer border border-gray-700 hover:border-purple-400/30 hover:bg-gradient-to-br hover:from-gray-800/70 hover:to-gray-900/70"
+           data-color="purple">
         <div class="p-6">
-          <h3 class="text-xl font-semibold text-purple-600 mb-2">Smart Living</h3>
-          <p class="text-gray-600">Enhance your city life experience with smart tools for daily living.</p>
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-lg flex items-center justify-center mb-4 group-hover:from-purple-800/60 group-hover:to-purple-700/40 transition-all duration-500">
+            <svg class="w-6 h-6 text-gradient bg-gradient-to-r from-purple-400 to-purple-600 group-hover:from-purple-300 group-hover:to-purple-500 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-purple-600 transition-all duration-500">Smart Living</h3>
+          <p class="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">Enhance your city life experience with smart tools for daily living.</p>
+          <a class="inline-flex items-center font-medium transition-all duration-500 text-gradient">
+            Learn more
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
       </div>
-  
-      <!-- Card 4 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Community Engagement</h3>
-          <p class="text-gray-600">Foster stronger community bonds with local events and group activities.</p>
-        </div>
-      </div>
-  
-      <!-- Card 5 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-red-600 mb-2">Sustainable Living</h3>
-          <p class="text-gray-600">Track and reduce your environmental footprint with smart urban solutions.</p>
-        </div>
-      </div>
-  
-      <!-- Card 6 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-yellow-600 mb-2">Urban Analytics</h3>
-          <p class="text-gray-600">Access urban insights and analytics to make informed decisions.</p>
-        </div>
-      </div>
-  
+
+      <!-- Add more cards as needed -->
+    </div>
+
+    <!-- Interactive CTA Section -->
+    <div class="mt-16 max-w-2xl mx-auto text-center p-8 rounded-xl bg-gradient-to-r from-blue-600/80 to-purple-600/80 hover:from-blue-500/80 hover:to-purple-700/80 transition-all duration-1000 shadow-lg hover:shadow-xl border border-white/10 backdrop-blur-sm">
+      <h2 class="text-2xl font-bold text-white mb-4">Ready to transform your urban experience?</h2>
+      <p class="text-blue-100 mb-6">Join thousands of smart city dwellers who are already enjoying these features.</p>
+      <button class="bg-white text-blue-600 hover:text-blue-800 font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 cursor-pointer">
+        Get Started Now
+      </button>
     </div>
   </div>
-  
-  <app-footer/>
-  <router-outlet/>
+</div>
+
+<app-footer></app-footer>
+<router-outlet/>
+
+<!-- JavaScript for Interactive Background -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dynamicBg = document.getElementById('dynamicBg');
+    const floatingCircle1 = document.getElementById('floatingCircle1');
+    const floatingCircle2 = document.getElementById('floatingCircle2');
+    const floatingCircle3 = document.getElementById('floatingCircle3');
+    
+    // Mouse move effect for background
+    dynamicBg.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      // Move gradient based on mouse position
+      dynamicBg.style.background = `
+        radial-gradient(at ${x * 100}% ${y * 100}%, 
+        #111827 0%, 
+        #1F2937 50%, 
+        #111827 100%)
+      `;
+      
+      // Move floating circles opposite to mouse movement (parallax effect)
+      floatingCircle1.style.transform = `translate(${x * 30 - 15}px, ${y * 30 - 15}px)`;
+      floatingCircle2.style.transform = `translate(${x * -20 + 10}px, ${y * -20 + 10}px)`;
+      floatingCircle3.style.transform = `translate(${x * 15 - 7.5}px, ${y * -15 + 7.5}px)`;
+    });
+    
+    // Card hover effect to change background slightly
+    const cards = document.querySelectorAll('[data-color]');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const color = card.getAttribute('data-color');
+        dynamicBg.style.background = `
+          radial-gradient(at 50% 50%, 
+          var(--tw-gradient-from) 0%, 
+          var(--tw-gradient-via) 50%, 
+          var(--tw-gradient-to) 100%)
+        `;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        dynamicBg.style.background = `
+          radial-gradient(at 50% 50%, 
+          #111827 0%, 
+          #1F2937 50%, 
+          #111827 100%)
+        `;
+      });
+    });
+  });
+</script>
