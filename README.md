@@ -24,48 +24,16 @@
 - Tailwind CSS
 
 ### **Backend**
-- Spring Boot
-- REST APIs
+- Spring Boot (Future Scope)
+- REST APIs (Future Scope)
+- Currently We are using json for dummy api's
 
 
 ### **Database**
-- MySQL (for structured business data)
+- MySQL (Future Scope)
+- Currently We are using json for dummy api's
 
 
-
-## ⚙️ Installation & Setup
-
-1️⃣ **Clone the Repository:**
-```sh
-git clone https://github.com/sayanash/UrbanLink.git
-cd UrbanLink
-```
-
-2️⃣ **Install Dependencies:**
-```sh
-npm install  # Install frontend dependencies
-```
-
-3️⃣ **Run the Angular Development Server:**
-```sh
-ng serve --open
-```
-
-4️⃣ **Run the Spring Boot Backend:**
-```sh
-cd backend
-mvn spring-boot:run
-```
-
-5️⃣ **Environment Variables:**
-- Set up Firebase API keys and Google Maps API keys in a `.env` file.
-
----
-
-## 📸 Screenshots
-📷 *Coming soon...*
-
----
 
 ## 💡 Future Enhancements
 ✅ AI-based recommendations based on user preferences.  
